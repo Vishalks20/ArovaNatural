@@ -1,0 +1,517 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+  <meta charset="UTF-8" />
+  <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+  <title>Arova Naturals — From the Farms of Bihar</title>
+  <link href="https://fonts.googleapis.com/css2?family=Playfair+Display:ital,wght@0,400;0,700;0,900;1,400&family=Cormorant+Garamond:wght@300;400;600&family=Jost:wght@300;400;500;600&display=swap" rel="stylesheet" />
+  <style>
+    *, *::before, *::after { margin: 0; padding: 0; box-sizing: border-box; }
+
+    :root {
+      --forest:    #1E4A2B;
+      --leaf:      #2E7D45;
+      --sage:      #4A7C59;
+      --gold:      #C9A84C;
+      --cream:     #F8F4EC;
+      --charcoal:  #0E0E0E;
+      --offwhite:  #F0EDE6;
+    }
+
+    html { scroll-behavior: smooth; }
+
+    body {
+      font-family: 'Jost', sans-serif;
+      background: var(--charcoal);
+      color: var(--cream);
+      overflow-x: hidden;
+    }
+
+    /* ── NAV ── */
+    nav {
+      position: fixed; top: 0; left: 0; right: 0; z-index: 100;
+      display: flex; align-items: center; justify-content: space-between;
+      padding: 18px 60px;
+      background: linear-gradient(to bottom, rgba(0,0,0,0.85), transparent);
+      backdrop-filter: blur(4px);
+    }
+    .nav-logo { height: 52px; filter: brightness(1.05); }
+    .nav-links { display: flex; gap: 36px; list-style: none; }
+    .nav-links a {
+      font-family: 'Jost', sans-serif; font-size: 13px; letter-spacing: .15em;
+      text-transform: uppercase; color: var(--cream); text-decoration: none;
+      opacity: .8; transition: opacity .2s, color .2s;
+    }
+    .nav-links a:hover { opacity: 1; color: var(--gold); }
+
+    /* ── HERO ── */
+    .hero {
+      position: relative; height: 100vh; display: flex; align-items: center; justify-content: center;
+      overflow: hidden;
+    }
+    .hero-bg {
+      position: absolute; inset: 0;
+      background:
+        radial-gradient(ellipse 80% 60% at 50% 40%, rgba(30,74,43,0.55) 0%, transparent 70%),
+        url("data:image/svg+xml,%3Csvg xmlns='http://www.w3.org/2000/svg' width='1400' height='900' viewBox='0 0 1400 900'%3E%3Crect width='1400' height='900' fill='%230a0a0a'/%3E%3C!-- Sky --%3E%3Crect y='0' width='1400' height='400' fill='url(%23sky)'/%3E%3C!-- Ground --%3E%3Crect y='400' width='1400' height='500' fill='url(%23ground)'/%3E%3C!-- Rolling hills --%3E%3Cellipse cx='700' cy='520' rx='900' ry='200' fill='%231a3d22'/%3E%3Cellipse cx='200' cy='600' rx='400' ry='150' fill='%23163520'/%3E%3Cellipse cx='1200' cy='580' rx='450' ry='170' fill='%23163520'/%3E%3C!-- Trees left --%3E%3Cellipse cx='80' cy='430' rx='45' ry='90' fill='%231E4A2B'/%3E%3Crect x='74' y='500' width='12' height='60' fill='%230d2414'/%3E%3Cellipse cx='160' cy='400' rx='38' ry='78' fill='%23245c34'/%3E%3Crect x='155' y='468' width='10' height='50' fill='%230d2414'/%3E%3Cellipse cx='250' cy='440' rx='50' ry='100' fill='%231a4227'/%3E%3Crect x='243' y='520' width='14' height='60' fill='%230d2414'/%3E%3C!-- Trees right --%3E%3Cellipse cx='1320' cy='430' rx='45' ry='90' fill='%231E4A2B'/%3E%3Crect x='1314' y='500' width='12' height='60' fill='%230d2414'/%3E%3Cellipse cx='1240' cy='400' rx='38' ry='78' fill='%23245c34'/%3E%3Crect x='1235' y='468' width='10' height='50' fill='%230d2414'/%3E%3Cellipse cx='1150' cy='440' rx='50' ry='100' fill='%231a4227'/%3E%3Crect x='1143' y='520' width='14' height='60' fill='%230d2414'/%3E%3C!-- Crop rows --%3E%3Cg opacity='0.4'%3E%3Cellipse cx='400' cy='650' rx='300' ry='20' fill='%232E7D45'/%3E%3Cellipse cx='700' cy='680' rx='350' ry='18' fill='%232E7D45'/%3E%3Cellipse cx='1000' cy='660' rx='300' ry='20' fill='%232E7D45'/%3E%3Cellipse cx='550' cy='720' rx='250' ry='15' fill='%231E4A2B'/%3E%3Cellipse cx='850' cy='740' rx='280' ry='15' fill='%231E4A2B'/%3E%3C/g%3E%3C!-- Sun glow --%3E%3Ccircle cx='700' cy='200' r='80' fill='%23c9a84c' opacity='0.12'/%3E%3Ccircle cx='700' cy='200' r='140' fill='%23c9a84c' opacity='0.06'/%3E%3Cdefs%3E%3ClinearGradient id='sky' x1='0' y1='0' x2='0' y2='1'%3E%3Cstop offset='0' stop-color='%230a1a0e'/%3E%3Cstop offset='1' stop-color='%231a3d22'/%3E%3C/linearGradient%3E%3ClinearGradient id='ground' x1='0' y1='0' x2='0' y2='1'%3E%3Cstop offset='0' stop-color='%231a3d22'/%3E%3Cstop offset='1' stop-color='%230a1208'/%3E%3C/linearGradient%3E%3C/defs%3E%3C/svg%3E") center/cover no-repeat;
+    }
+    /* Soft particle-like dots for atmosphere */
+    .hero-bg::after {
+      content: '';
+      position: absolute; inset: 0;
+      background-image:
+        radial-gradient(1px 1px at 20% 30%, rgba(201,168,76,0.4) 0%, transparent 100%),
+        radial-gradient(1px 1px at 80% 20%, rgba(201,168,76,0.3) 0%, transparent 100%),
+        radial-gradient(1px 1px at 60% 70%, rgba(255,255,255,0.15) 0%, transparent 100%),
+        radial-gradient(1px 1px at 10% 80%, rgba(255,255,255,0.1) 0%, transparent 100%);
+    }
+    .hero-content {
+      position: relative; z-index: 2;
+      display: flex; flex-direction: column; align-items: center; text-align: center;
+      gap: 24px;
+    }
+    .hero-logo { width: 260px; animation: fadeUp .9s ease both; }
+    .hero-tagline {
+      font-family: 'Cormorant Garamond', serif; font-weight: 300; font-size: 22px;
+      letter-spacing: .3em; text-transform: uppercase; color: var(--gold);
+      animation: fadeUp .9s .15s ease both;
+    }
+    .hero-headline {
+      font-family: 'Playfair Display', serif; font-size: clamp(42px, 7vw, 88px);
+      font-weight: 900; line-height: 1.05; max-width: 700px;
+      animation: fadeUp .9s .25s ease both;
+    }
+    .hero-headline em { font-style: italic; color: var(--leaf); }
+    .hero-sub {
+      font-size: 16px; font-weight: 300; letter-spacing: .06em;
+      max-width: 480px; opacity: .75; line-height: 1.7;
+      animation: fadeUp .9s .35s ease both;
+    }
+    .gold-line {
+      width: 80px; height: 1.5px; background: var(--gold);
+      animation: fadeUp .9s .45s ease both;
+    }
+    .cta-group {
+      display: flex; gap: 16px; flex-wrap: wrap; justify-content: center;
+      animation: fadeUp .9s .5s ease both;
+    }
+    .btn-primary {
+      background: var(--gold); color: var(--charcoal);
+      font-family: 'Jost', sans-serif; font-size: 13px; font-weight: 600;
+      letter-spacing: .18em; text-transform: uppercase;
+      padding: 16px 36px; text-decoration: none;
+      transition: transform .2s, box-shadow .2s;
+      display: inline-block;
+    }
+    .btn-primary:hover { transform: translateY(-2px); box-shadow: 0 8px 28px rgba(201,168,76,.4); }
+    .btn-outline {
+      border: 1.5px solid rgba(248,244,236,0.4); color: var(--cream);
+      font-family: 'Jost', sans-serif; font-size: 13px; font-weight: 500;
+      letter-spacing: .18em; text-transform: uppercase;
+      padding: 15px 36px; text-decoration: none;
+      transition: border-color .2s, background .2s;
+      display: inline-block;
+    }
+    .btn-outline:hover { border-color: var(--cream); background: rgba(255,255,255,.05); }
+    .scroll-indicator {
+      position: absolute; bottom: 36px; left: 50%; transform: translateX(-50%);
+      display: flex; flex-direction: column; align-items: center; gap: 8px;
+      opacity: .5; animation: bounce 2s infinite;
+    }
+    .scroll-indicator span { font-size: 10px; letter-spacing: .2em; text-transform: uppercase; }
+    .scroll-indicator svg { width: 20px; }
+
+    /* ── ORIGIN STRIP ── */
+    .origin-strip {
+      background: var(--forest);
+      display: flex; justify-content: center; gap: 60px; flex-wrap: wrap;
+      padding: 28px 60px;
+    }
+    .origin-item {
+      display: flex; align-items: center; gap: 12px;
+    }
+    .origin-item svg { width: 22px; opacity: .85; flex-shrink: 0; }
+    .origin-item span { font-size: 13px; letter-spacing: .12em; text-transform: uppercase; opacity: .85; }
+
+    /* ── SECTION BASE ── */
+    section { padding: 100px 60px; }
+    .section-label {
+      font-family: 'Jost', sans-serif; font-size: 11px; letter-spacing: .25em;
+      text-transform: uppercase; color: var(--gold); margin-bottom: 14px;
+    }
+    .section-title {
+      font-family: 'Playfair Display', serif; font-size: clamp(32px, 4.5vw, 58px);
+      font-weight: 700; line-height: 1.1;
+    }
+    .section-title em { font-style: italic; color: var(--leaf); }
+
+    /* ── STORY ── */
+    .story-section {
+      background: var(--charcoal);
+      display: grid; grid-template-columns: 1fr 1fr; gap: 80px; align-items: center;
+      max-width: 1200px; margin: 0 auto;
+    }
+    .story-visual {
+      position: relative; height: 480px;
+    }
+    .story-farm-art {
+      width: 100%; height: 100%;
+      background:
+        radial-gradient(ellipse 70% 50% at 50% 60%, rgba(46,125,69,0.3) 0%, transparent 70%),
+        url("data:image/svg+xml,%3Csvg xmlns='http://www.w3.org/2000/svg' width='600' height='480' viewBox='0 0 600 480'%3E%3Crect width='600' height='480' fill='%230a1208'/%3E%3C!-- Sky --%3E%3Crect width='600' height='240' fill='url(%23sky2)'/%3E%3C!-- Main hill --%3E%3Cellipse cx='300' cy='300' rx='500' ry='140' fill='%23163520'/%3E%3C!-- Fields --%3E%3Cellipse cx='300' cy='360' rx='400' ry='80' fill='%231a4227'/%3E%3C!-- Crop lines --%3E%3Cg stroke='%232E7D45' stroke-width='1.5' opacity='0.6'%3E%3Cline x1='80' y1='350' x2='520' y2='350'/%3E%3Cline x1='60' y1='370' x2='540' y2='370'/%3E%3Cline x1='50' y1='390' x2='550' y2='390'/%3E%3Cline x1='40' y1='410' x2='560' y2='410'/%3E%3Cline x1='30' y1='430' x2='570' y2='430'/%3E%3Cline x1='20' y1='450' x2='580' y2='450'/%3E%3C/g%3E%3C!-- Wheat / plant shapes --%3E%3Cg fill='%232E7D45' opacity='0.8'%3E%3Crect x='100' y='320' width='4' height='30'/%3E%3Cellipse cx='102' cy='315' rx='8' ry='14'/%3E%3Crect x='150' y='315' width='4' height='35'/%3E%3Cellipse cx='152' cy='308' rx='8' ry='14'/%3E%3Crect x='200' y='320' width='4' height='30'/%3E%3Cellipse cx='202' cy='314' rx='8' ry='14'/%3E%3Crect x='250' y='310' width='4' height='40'/%3E%3Cellipse cx='252' cy='304' rx='9' ry='16'/%3E%3Crect x='300' y='320' width='4' height='30'/%3E%3Cellipse cx='302' cy='314' rx='8' ry='14'/%3E%3Crect x='350' y='315' width='4' height='35'/%3E%3Cellipse cx='352' cy='308' rx='8' ry='14'/%3E%3Crect x='400' y='320' width='4' height='30'/%3E%3Cellipse cx='402' cy='314' rx='8' ry='14'/%3E%3Crect x='450' y='310' width='4' height='40'/%3E%3Cellipse cx='452' cy='304' rx='9' ry='16'/%3E%3Crect x='500' y='320' width='4' height='30'/%3E%3Cellipse cx='502' cy='314' rx='8' ry='14'/%3E%3C/g%3E%3C!-- Trees --%3E%3Cellipse cx='50' cy='270' rx='30' ry='60' fill='%231E4A2B'/%3E%3Crect x='44' y='320' width='12' height='40' fill='%230d2414'/%3E%3Cellipse cx='550' cy='260' rx='28' ry='55' fill='%231E4A2B'/%3E%3Crect x='544' y='308' width='12' height='40' fill='%230d2414'/%3E%3C!-- Moon / light --%3E%3Ccircle cx='300' cy='80' r='40' fill='%23c9a84c' opacity='0.15'/%3E%3Ccircle cx='300' cy='80' r='25' fill='%23c9a84c' opacity='0.2'/%3E%3Cdefs%3E%3ClinearGradient id='sky2' x1='0' y1='0' x2='0' y2='1'%3E%3Cstop offset='0' stop-color='%230a0e08'/%3E%3Cstop offset='1' stop-color='%23152b1a'/%3E%3C/linearGradient%3E%3C/defs%3E%3C/svg%3E") center/cover no-repeat;
+      border: 1px solid rgba(46,125,69,0.2);
+    }
+    .story-badge {
+      position: absolute; bottom: -20px; right: -20px;
+      width: 110px; height: 110px;
+      background: var(--gold); color: var(--charcoal);
+      border-radius: 50%; display: flex; flex-direction: column;
+      align-items: center; justify-content: center; text-align: center;
+      font-family: 'Playfair Display', serif;
+    }
+    .story-badge .badge-num { font-size: 30px; font-weight: 900; line-height: 1; }
+    .story-badge .badge-label { font-size: 9px; letter-spacing: .1em; text-transform: uppercase; margin-top: 2px; }
+    .story-text { display: flex; flex-direction: column; gap: 24px; }
+    .story-text p { font-family: 'Cormorant Garamond', serif; font-size: 19px; font-weight: 400; line-height: 1.8; opacity: .85; }
+    .story-facts { display: flex; gap: 40px; margin-top: 8px; }
+    .fact { display: flex; flex-direction: column; gap: 4px; }
+    .fact-num { font-family: 'Playfair Display', serif; font-size: 36px; font-weight: 700; color: var(--leaf); line-height: 1; }
+    .fact-label { font-size: 12px; letter-spacing: .12em; text-transform: uppercase; opacity: .6; }
+
+    /* ── PRODUCTS ── */
+    .products-section {
+      background: linear-gradient(180deg, var(--charcoal) 0%, var(--forest) 100%);
+      text-align: center;
+    }
+    .products-header { margin-bottom: 60px; }
+    .products-grid {
+      display: grid; grid-template-columns: repeat(3, 1fr); gap: 2px;
+      max-width: 1100px; margin: 0 auto 60px;
+    }
+    .product-card {
+      background: rgba(255,255,255,.03);
+      border: 1px solid rgba(255,255,255,.07);
+      padding: 48px 36px; display: flex; flex-direction: column; align-items: center;
+      gap: 20px; transition: background .25s, transform .25s, border-color .25s;
+      cursor: default;
+    }
+    .product-card:hover {
+      background: rgba(30,74,43,.3);
+      border-color: rgba(46,125,69,.4);
+      transform: translateY(-6px);
+    }
+    .product-icon { font-size: 48px; line-height: 1; }
+    .product-name {
+      font-family: 'Playfair Display', serif; font-size: 22px; font-weight: 700;
+    }
+    .product-desc {
+      font-family: 'Cormorant Garamond', serif; font-size: 17px;
+      line-height: 1.7; opacity: .75;
+    }
+    .product-origin {
+      font-size: 11px; letter-spacing: .18em; text-transform: uppercase;
+      color: var(--gold); margin-top: auto;
+    }
+    .amazon-cta-wrap { margin-top: 20px; }
+    .amazon-btn {
+      display: inline-flex; align-items: center; gap: 12px;
+      background: #FF9900; color: #000;
+      font-family: 'Jost', sans-serif; font-size: 14px; font-weight: 700;
+      letter-spacing: .08em; padding: 18px 44px; text-decoration: none;
+      transition: transform .2s, box-shadow .2s;
+    }
+    .amazon-btn:hover { transform: translateY(-2px); box-shadow: 0 8px 32px rgba(255,153,0,.35); }
+    .amazon-btn svg { width: 22px; }
+
+    /* ── VALUES ── */
+    .values-section {
+      background: var(--forest);
+    }
+    .values-inner { max-width: 1100px; margin: 0 auto; display: grid; grid-template-columns: 1fr 2fr; gap: 80px; align-items: start; }
+    .values-grid { display: grid; grid-template-columns: 1fr 1fr; gap: 32px; }
+    .value-card {
+      padding: 32px 28px;
+      border-left: 2px solid var(--gold);
+    }
+    .value-title {
+      font-family: 'Playfair Display', serif; font-size: 20px; font-weight: 700;
+      margin-bottom: 10px;
+    }
+    .value-text { font-size: 14px; line-height: 1.75; opacity: .75; }
+
+    /* ── CONTACT ── */
+    .contact-section {
+      background: var(--charcoal);
+      display: flex; flex-direction: column; align-items: center; text-align: center; gap: 40px;
+    }
+    .contact-grid {
+      display: flex; gap: 48px; flex-wrap: wrap; justify-content: center;
+      margin-top: 16px;
+    }
+    .contact-card {
+      display: flex; flex-direction: column; align-items: center; gap: 12px;
+      padding: 36px 44px;
+      border: 1px solid rgba(255,255,255,.1);
+      min-width: 220px;
+      transition: border-color .2s;
+    }
+    .contact-card:hover { border-color: var(--gold); }
+    .contact-card svg { width: 28px; color: var(--gold); }
+    .contact-card-label { font-size: 11px; letter-spacing: .2em; text-transform: uppercase; opacity: .6; }
+    .contact-card-value { font-family: 'Cormorant Garamond', serif; font-size: 20px; font-weight: 600; }
+    .contact-card a { color: inherit; text-decoration: none; }
+    .contact-card a:hover { color: var(--gold); }
+
+    /* ── FOOTER ── */
+    footer {
+      background: var(--charcoal);
+      border-top: 1px solid rgba(255,255,255,.07);
+      padding: 36px 60px;
+      display: flex; align-items: center; justify-content: space-between; flex-wrap: wrap; gap: 20px;
+    }
+    footer img { height: 36px; opacity: .7; }
+    footer p { font-size: 12px; opacity: .4; letter-spacing: .05em; }
+    .footer-links { display: flex; gap: 24px; }
+    .footer-links a { font-size: 12px; letter-spacing: .1em; text-transform: uppercase; opacity: .5; text-decoration: none; color: var(--cream); }
+    .footer-links a:hover { opacity: 1; color: var(--gold); }
+
+    /* ── DIVIDERS ── */
+    .gold-divider { width: 60px; height: 1px; background: var(--gold); margin: 0 auto 40px; }
+
+    /* ── ANIMATIONS ── */
+    @keyframes fadeUp {
+      from { opacity: 0; transform: translateY(22px); }
+      to   { opacity: 1; transform: translateY(0); }
+    }
+    @keyframes bounce {
+      0%, 100% { transform: translateX(-50%) translateY(0); }
+      50%       { transform: translateX(-50%) translateY(8px); }
+    }
+
+    /* ── RESPONSIVE ── */
+    @media (max-width: 900px) {
+      nav { padding: 16px 24px; }
+      .nav-links { display: none; }
+      section { padding: 70px 24px; }
+      .story-section { grid-template-columns: 1fr; }
+      .story-visual { height: 280px; }
+      .products-grid { grid-template-columns: 1fr; gap: 12px; }
+      .values-inner { grid-template-columns: 1fr; gap: 40px; }
+      .values-grid { grid-template-columns: 1fr; }
+      .origin-strip { flex-direction: column; align-items: center; gap: 16px; padding: 24px; }
+      footer { flex-direction: column; text-align: center; }
+    }
+  </style>
+</head>
+<body>
+
+  <!-- NAV -->
+  <nav>
+    <img class="nav-logo" src="1781792898415_ArovaNatLogo.jpeg" alt="Arova Naturals" onerror="this.style.display='none'; this.nextSibling.style.display='block'"/>
+    <span style="display:none; font-family:'Playfair Display',serif; font-size:22px; color:#2E7D45; font-weight:700; letter-spacing:.06em;">AROVA NATURALS</span>
+    <ul class="nav-links">
+      <li><a href="#story">Our Story</a></li>
+      <li><a href="#products">Products</a></li>
+      <li><a href="#values">Values</a></li>
+      <li><a href="#contact">Contact</a></li>
+    </ul>
+  </nav>
+
+  <!-- HERO -->
+  <section class="hero">
+    <div class="hero-bg"></div>
+    <div class="hero-content">
+      <img class="hero-logo" src="1781792898415_ArovaNatLogo.jpeg" alt="Arova Naturals Logo"
+           onerror="this.outerHTML='<h1 style=\'font-family:Playfair Display,serif;font-size:72px;font-weight:900;color:#2E7D45;letter-spacing:.1em;\'>AROVA<br><span style=\'font-size:40px;color:#4A7C59;\'>NATURALS</span></h1>'"/>
+      <div class="gold-line"></div>
+      <p class="hero-tagline">From the Farms of Bihar</p>
+      <h2 class="hero-headline">Pure. <em>Natural.</em><br/>Grown with Care.</h2>
+      <p class="hero-sub">Farm-fresh products sourced directly from the fertile fields of Bihar — no middlemen, no compromise.</p>
+      <div class="cta-group">
+        <a class="btn-primary" href="https://amzn.in/d/03MsOX2T" target="_blank" rel="noopener">Shop on Amazon</a>
+        <a class="btn-outline" href="#story">Our Story</a>
+      </div>
+    </div>
+    <div class="scroll-indicator">
+      <span>Scroll</span>
+      <svg viewBox="0 0 20 20" fill="none" stroke="currentColor" stroke-width="1.5">
+        <path d="M10 4v12M4 10l6 6 6-6"/>
+      </svg>
+    </div>
+  </section>
+
+  <!-- ORIGIN STRIP -->
+  <div class="origin-strip">
+    <div class="origin-item">
+      <svg viewBox="0 0 24 24" fill="none" stroke="#C9A84C" stroke-width="1.8"><path d="M12 2C6.48 2 2 6.48 2 12s4.48 10 10 10 10-4.48 10-10S17.52 2 12 2z"/><path d="M12 6v6l4 2"/></svg>
+      <span>Farm Fresh</span>
+    </div>
+    <div class="origin-item">
+      <svg viewBox="0 0 24 24" fill="none" stroke="#C9A84C" stroke-width="1.8"><path d="M12 22s8-4 8-10V5l-8-3-8 3v7c0 6 8 10 8 10z"/></svg>
+      <span>No Additives</span>
+    </div>
+    <div class="origin-item">
+      <svg viewBox="0 0 24 24" fill="none" stroke="#C9A84C" stroke-width="1.8"><path d="M3 9l9-7 9 7v11a2 2 0 01-2 2H5a2 2 0 01-2-2z"/><polyline points="9 22 9 12 15 12 15 22"/></svg>
+      <span>Direct from Bihar</span>
+    </div>
+    <div class="origin-item">
+      <svg viewBox="0 0 24 24" fill="none" stroke="#C9A84C" stroke-width="1.8"><circle cx="12" cy="12" r="10"/><path d="M8.56 2.75c4.37 6.03 6.02 9.42 8.03 17.72m2.54-15.38c-3.72 4.35-8.94 5.66-16.88 5.85m19.5 1.9c-3.5-.93-6.63-.82-8.94 0-2.58.92-5.01 2.86-7.44 6.32"/></svg>
+      <span>Naturally Grown</span>
+    </div>
+    <div class="origin-item">
+      <svg viewBox="0 0 24 24" fill="none" stroke="#C9A84C" stroke-width="1.8"><polyline points="22 12 18 12 15 21 9 3 6 12 2 12"/></svg>
+      <span>Quality Assured</span>
+    </div>
+  </div>
+
+  <!-- STORY -->
+  <div id="story" style="background:var(--charcoal);">
+    <div class="story-section" style="padding:100px 60px;">
+      <div class="story-visual">
+        <div class="story-farm-art"></div>
+        <div class="story-badge">
+          <span class="badge-num">100%</span>
+          <span class="badge-label">Natural</span>
+        </div>
+      </div>
+      <div class="story-text">
+        <div>
+          <div class="section-label">Our Story</div>
+          <h2 class="section-title">Rooted in the<br/><em>Soil of Bihar</em></h2>
+        </div>
+        <p>Arova Naturals was born from a simple belief: the richest nourishment comes straight from the earth. Bihar's ancient farmlands, nurtured by the Ganges, have fed generations — and now that goodness reaches your table.</p>
+        <p>We work hand-in-hand with local farmers who have cultivated this land for decades, preserving traditional methods while ensuring every product meets the highest purity standards.</p>
+        <div class="story-facts">
+          <div class="fact">
+            <span class="fact-num">0</span>
+            <span class="fact-label">Artificial additives</span>
+          </div>
+          <div class="fact">
+            <span class="fact-num">100%</span>
+            <span class="fact-label">Farm Traceable</span>
+          </div>
+          <div class="fact">
+            <span class="fact-num">Bihar</span>
+            <span class="fact-label">Origin</span>
+          </div>
+        </div>
+      </div>
+    </div>
+  </div>
+
+  <!-- PRODUCTS -->
+  <section class="products-section" id="products">
+    <div class="products-header">
+      <div class="section-label">What We Offer</div>
+      <h2 class="section-title" style="margin-bottom:16px;">Nature's Best,<br/><em>Delivered</em></h2>
+      <div class="gold-divider"></div>
+      <p style="max-width:500px; margin:0 auto; opacity:.7; font-family:'Cormorant Garamond',serif; font-size:18px; line-height:1.7;">
+        Every product is hand-picked, naturally processed, and packaged with care — from our farms to your doorstep.
+      </p>
+    </div>
+    <div class="products-grid">
+      <div class="product-card">
+        <div class="product-icon">🌿</div>
+        <div class="product-name">Natural Herbs</div>
+        <p class="product-desc">Handpicked medicinal and culinary herbs grown without pesticides in Bihar's clean farm air.</p>
+        <span class="product-origin">Bihar Farmlands</span>
+      </div>
+      <div class="product-card">
+        <div class="product-icon">🌾</div>
+        <div class="product-name">Farm Grains</div>
+        <p class="product-desc">Heirloom grains and pulses cultivated using traditional methods, rich in nutrients and flavour.</p>
+        <span class="product-origin">Bihar Farmlands</span>
+      </div>
+      <div class="product-card">
+        <div class="product-icon">🍯</div>
+        <div class="product-name">Natural Produce</div>
+        <p class="product-desc">Pure, unprocessed farm produce directly from the fertile Gangetic plains of Bihar.</p>
+        <span class="product-origin">Bihar Farmlands</span>
+      </div>
+    </div>
+    <div class="amazon-cta-wrap">
+      <a class="amazon-btn" href="https://amzn.in/d/03MsOX2T" target="_blank" rel="noopener">
+        <svg viewBox="0 0 24 24" fill="currentColor"><path d="M18.42 14.26c-.19.19-.47.22-.69.07C16.3 13.3 14.7 13 12 13c-2.7 0-4.3.3-5.73 1.33a.49.49 0 01-.69-.07.48.48 0 01.07-.69C7.2 12.43 9.1 12 12 12c2.9 0 4.8.43 6.35 1.57.22.16.26.47.07.69zm.95-2.12a.62.62 0 01-.88.08C16.49 10.9 14.26 10.25 12 10.25c-2.26 0-4.49.65-6.49 1.97a.62.62 0 01-.88-.08.62.62 0 01.08-.88C6.79 9.7 9.3 9 12 9c2.71 0 5.21.7 7.29 2.26a.62.62 0 01.08.88zm.82-2.38C17.47 7.86 14.85 7 12 7S6.53 7.86 4.81 9.76a.75.75 0 01-1.06.05.75.75 0 01-.05-1.06C5.68 6.64 8.67 5.5 12 5.5s6.32 1.14 8.3 3.25a.75.75 0 01-.05 1.06.75.75 0 01-1.06-.05z"/></svg>
+        View Our Products on Amazon
+      </a>
+    </div>
+  </section>
+
+  <!-- VALUES -->
+  <section class="values-section" id="values">
+    <div class="values-inner">
+      <div>
+        <div class="section-label">Why Arova</div>
+        <h2 class="section-title">Our<br/><em>Promise</em><br/>to You</h2>
+        <div style="margin-top:24px; width:50px; height:1.5px; background:var(--gold);"></div>
+      </div>
+      <div class="values-grid">
+        <div class="value-card">
+          <h3 class="value-title">🌱 Pure Origins</h3>
+          <p class="value-text">Every batch is traceable to the exact farm and harvest season in Bihar. No blending, no mystery sources.</p>
+        </div>
+        <div class="value-card">
+          <h3 class="value-title">🤝 Farmer First</h3>
+          <p class="value-text">We pay fair prices directly to farmers, supporting livelihoods and encouraging sustainable agriculture.</p>
+        </div>
+        <div class="value-card">
+          <h3 class="value-title">✓ Zero Compromise</h3>
+          <p class="value-text">No artificial preservatives, colours, or enhancers. What nature made, we deliver — nothing more.</p>
+        </div>
+        <div class="value-card">
+          <h3 class="value-title">📦 Care in Every Box</h3>
+          <p class="value-text">Thoughtfully packaged to preserve freshness, flavour, and nutritional integrity from farm to shelf.</p>
+        </div>
+      </div>
+    </div>
+  </section>
+
+  <!-- CONTACT -->
+  <section class="contact-section" id="contact">
+    <div class="section-label">Get in Touch</div>
+    <h2 class="section-title">We'd Love to<br/><em>Hear from You</em></h2>
+    <div class="gold-divider"></div>
+    <p style="max-width:440px; opacity:.7; font-family:'Cormorant Garamond',serif; font-size:18px; line-height:1.7;">
+      Questions about our products, wholesale enquiries, or just want to know more about Arova Naturals? Reach out.
+    </p>
+    <div class="contact-grid">
+      <div class="contact-card">
+        <svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="1.8">
+          <path d="M4 4h16c1.1 0 2 .9 2 2v12c0 1.1-.9 2-2 2H4c-1.1 0-2-.9-2-2V6c0-1.1.9-2 2-2z"/>
+          <polyline points="22,6 12,13 2,6"/>
+        </svg>
+        <span class="contact-card-label">Email</span>
+        <span class="contact-card-value"><a href="mailto:arovanaturalsofficial@gmail.com">arovanaturalsofficial@gmail.com</a></span>
+      </div>
+      <div class="contact-card">
+        <svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="1.8">
+          <path d="M22 16.92v3a2 2 0 01-2.18 2 19.79 19.79 0 01-8.63-3.07A19.5 19.5 0 013.07 9.81 19.79 19.79 0 01.04 1.19 2 2 0 012.03 1h3a2 2 0 012 1.72c.127.96.361 1.903.7 2.81a2 2 0 01-.45 2.11L6.09 8.91a16 16 0 006 6l1.27-1.27a2 2 0 012.11-.45c.907.339 1.85.573 2.81.7A2 2 0 0122 16.92z"/>
+        </svg>
+        <span class="contact-card-label">Phone / WhatsApp</span>
+        <span class="contact-card-value"><a href="tel:+918409827216">+91 84098 27216</a></span>
+      </div>
+      <div class="contact-card">
+        <svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="1.8">
+          <circle cx="12" cy="12" r="10"/><line x1="2" y1="12" x2="22" y2="12"/>
+          <path d="M12 2a15.3 15.3 0 014 10 15.3 15.3 0 01-4 10 15.3 15.3 0 01-4-10 15.3 15.3 0 014-10z"/>
+        </svg>
+        <span class="contact-card-label">Shop Online</span>
+        <span class="contact-card-value"><a href="https://amzn.in/d/03MsOX2T" target="_blank" rel="noopener">amazon.in</a></span>
+      </div>
+    </div>
+  </section>
+
+  <!-- FOOTER -->
+  <footer>
+    <img src="1781792898415_ArovaNatLogo.jpeg" alt="Arova Naturals"
+         onerror="this.outerHTML='<span style=\'font-family:Playfair Display,serif;color:#2E7D45;font-size:16px;font-weight:700;\'>AROVA NATURALS</span>'"/>
+    <p>© 2026 Arova Naturals. From the Farms of Bihar.</p>
+    <div class="footer-links">
+      <a href="https://amzn.in/d/03MsOX2T" target="_blank">Amazon Store</a>
+      <a href="mailto:arovanaturalsofficial@gmail.com">Email</a>
+      <a href="tel:+918409827216">Call</a>
+    </div>
+  </footer>
+
+</body>
+</html>
